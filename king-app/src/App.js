@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    lands: [
+      { kind: 'forest', income: 'low' },
+      { kind: 'plains', income: 'medium' },
+      { kind: 'city', income: 'high' },
+      { kind: 'forest', income: 'low' },
+    ]
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          { this.state.lands.map(land => 
+            <div>
+              <h1>LAND:</h1>
+              <h2>KIND: {land.kind}</h2>
+              <h3>INCOME: {land.income}</h3>
+            </div>
+          )}
         </header>
       </div>
     );
